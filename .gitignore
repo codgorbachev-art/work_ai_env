@@ -46,3 +46,4 @@ voiceflow/release/
 
 # Specific problematic files
 voiceflow/nul
+__pycache__/
