@@ -1,133 +1,134 @@
 /**
- * Скрипт автоматизации установки минимальных цен на Авито.
+ * Скрипт автоматизации установки минимальных цен на Авито (Версия 15 - First Field 40).
  * Инструкция:
- * 1. Откройте страницу настройки продвижения на Авито (где есть поля "Цена просмотра").
- * 2. Нажмите F12, перейдите во вкладку Console.
- * 3. Скопируйте весь этот код и вставьте в консоль.
- * 4. Нажмите Enter.
+ * 1. Создайте закладку в браузере.
+ * 2. В поле URL вставьте код ниже (начиная с javascript:).
+ * 3. На странице Авито нажмите на закладку.
  */
 
-(async function automateAvitoPrices() {
-    console.log("🚀 Запуск скрипта автоматизации цен...");
+/*
+javascript:(async function(){const wait=ms=>new Promise(r=>setTimeout(r,ms));const simulateKey=(el,key,code)=>{el.dispatchEvent(new KeyboardEvent("keydown",{bubbles:!0,cancelable:!0,key:key,code:code,keyCode:code==="Enter"?13:9,which:code==="Enter"?13:9}));el.dispatchEvent(new KeyboardEvent("keypress",{bubbles:!0,cancelable:!0,key:key,code:code,keyCode:code==="Enter"?13:9,which:code==="Enter"?13:9}));el.dispatchEvent(new KeyboardEvent("keyup",{bubbles:!0,cancelable:!0,key:key,code:code,keyCode:code==="Enter"?13:9,which:code==="Enter"?13:9}))};const setVal=(el,val)=>{el.focus();const setter=Object.getOwnPropertyDescriptor(el,"value").set;const proto=Object.getPrototypeOf(el);const protoSetter=Object.getOwnPropertyDescriptor(proto,"value").set;if(protoSetter&&protoSetter!==setter){protoSetter.call(el,val)}else{setter.call(el,val)}el.dispatchEvent(new Event("input",{bubbles:!0}));el.dispatchEvent(new Event("change",{bubbles:!0}));simulateKey(el,"Enter","Enter");el.blur()};const debugPanel=document.createElement("div");debugPanel.style.cssText="position:fixed;top:10px;right:10px;background:black;color:white;padding:5px;z-index:9999;font-size:12px;opacity:0.8";document.body.appendChild(debugPanel);const updateDebug=(text)=>debugPanel.innerText=text;updateDebug("🚀 V15 First=40...");window.scrollTo(0,0);await wait(200);let totalProcessed=0,processedSet=new Set();while(true){const allInputs=document.querySelectorAll("input");let screenInputs=[];for(let el of allInputs){if(!processedSet.has(el)){let isBad=false;let parent=el.closest('div[class*="root"]');if(!parent)parent=el.closest('div[class*="style-item-"]');if(!parent)parent=el.parentElement.parentElement.parentElement;if(parent){const t=parent.innerText.toLowerCase();if(t.includes("тратить")||t.includes("день")||t.includes("бюджет"))isBad=true;}if(isBad){el.style.outline="3px solid red";continue}const val=el.value||"";const pText=el.parentElement?el.parentElement.innerText:"";if(val.includes("₽")||pText.includes("₽")||el.type==="tel"||(el.type==="text"&&!isNaN(parseFloat(val)))){screenInputs.push({el,parent})}}}updateDebug(`👀 Найдено: ${screenInputs.length} | Итого: ${totalProcessed}`);if(screenInputs.length>0){const promises=screenInputs.map(async({el,parent},index)=>{processedSet.add(el);try{el.style.outline="3px solid blue";const isGlobalFirst=(totalProcessed===0&&index===0);const targetVal=isGlobalFirst?"40":"0";setVal(el,targetVal);document.body.click();await wait(200);if(isGlobalFirst){el.style.outline="3px solid purple";totalProcessed++;return}if(el.value!=="0"&&el.value!==""){el.style.outline="3px solid green";totalProcessed++;return}const text=parent?parent.innerText:"";const match=text.match(/Минимальн[а-я]+\s*(?:цена|ставка).*?(\d+)/i)||text.match(/(\d+)\s*₽/);if(match){const minPrice=match[1];if(el.value.replace(/\D/g,'')!==minPrice){setVal(el,minPrice);el.blur();el.style.outline="3px solid green";totalProcessed++}else{el.style.outline="3px solid green"}}else{el.style.outline="3px solid orange"}}catch(e){console.error(e)}});await Promise.all(promises);await wait(100)}if((window.innerHeight+window.scrollY)>=document.body.offsetHeight-10){updateDebug(`🏁 Финиш! ${totalProcessed}`);alert(`Готово V15! Обработано строк: ${totalProcessed}`);break}window.scrollBy(0,window.innerHeight*0.9);await wait(250)}})();
+*/
 
-    // Функция для паузы
-    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
-    // Функция для установки значения в React-input (React переопределяет сеттеры)
-    const setNativeValue = (element, value) => {
-        const valueSetter = Object.getOwnPropertyDescriptor(element, 'value').set;
-        const prototype = Object.getPrototypeOf(element);
-        const prototypeValueSetter = Object.getOwnPropertyDescriptor(prototype, 'value').set;
-        
-        if (valueSetter && valueSetter !== prototypeValueSetter) {
-            prototypeValueSetter.call(element, value);
-        } else {
-            valueSetter.call(element, value);
-        }
-        
-        element.dispatchEvent(new Event('input', { bubbles: true }));
-        element.dispatchEvent(new Event('change', { bubbles: true }));
-        element.dispatchEvent(new Event('blur', { bubbles: true }));
+// Развернутая версия для чтения/отладки:
+(async function () {
+    const wait = ms => new Promise(r => setTimeout(r, ms));
+    const simulateKey = (el, key, code) => {
+        const options = { bubbles: true, cancelable: true, key: key, code: code, keyCode: code === "Enter" ? 13 : 9, which: code === "Enter" ? 13 : 9 };
+        el.dispatchEvent(new KeyboardEvent("keydown", options));
+        el.dispatchEvent(new KeyboardEvent("keypress", options));
+        el.dispatchEvent(new KeyboardEvent("keyup", options));
     };
 
-    // 1. Поиск всех надписей "Цена просмотра"
-    // Используем XPath, чтобы найти текст, а затем найти связанный input
-    const xpath = "//div[contains(text(), 'Цена просмотра')]";
-    const result = document.evaluate(xpath, document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE, null);
+    const setVal = (el, val) => {
+        el.focus();
+        const setter = Object.getOwnPropertyDescriptor(el, "value").set;
+        const proto = Object.getPrototypeOf(el);
+        const protoSetter = Object.getOwnPropertyDescriptor(proto, "value").set;
+        if (protoSetter && protoSetter !== setter) { protoSetter.call(el, val); } else { setter.call(el, val); }
+        el.dispatchEvent(new Event("input", { bubbles: true }));
+        el.dispatchEvent(new Event("change", { bubbles: true }));
+        simulateKey(el, "Enter", "Enter");
+        el.blur();
+    };
 
-    const inputsToProcess = [];
+    const debugPanel = document.createElement("div");
+    debugPanel.style.cssText = "position:fixed;top:10px;right:10px;background:black;color:white;padding:5px;z-index:9999;font-size:12px;opacity:0.8";
+    document.body.appendChild(debugPanel);
+    const updateDebug = (text) => debugPanel.innerText = text;
 
-    for (let i = 0; i < result.snapshotLength; i++) {
-        const labelNode = result.snapshotItem(i);
-        // Ищем input рядом с label. Обычно он находится в родительском или соседнем контейнере.
-        // Пойдем вверх к общему контейнеру и найдем там input.
-        // Структура Авито может меняться, но обычно input недалеко.
-        // Попробуем найти input в следующем элементе или внутри родителя.
-        
-        // Стратегия: Ищем ближайший input внутри родительского блока (поднимаемся на пару уровней вверх)
-        let container = labelNode.parentElement; 
-        let input = container.querySelector('input');
-        
-        // Если не нашли сразу, поднимемся выше (иногда label и input соседи в обертке)
-        if (!input) {
-            container = container.parentElement;
-            input = container ? container.querySelector('input') : null;
-        }
+    updateDebug("🚀 V15 First=40...");
+    window.scrollTo(0, 0);
+    await wait(200);
 
-        if (input) {
-            inputsToProcess.push({ label: labelNode, input: input });
-        }
-    }
+    let totalProcessed = 0;
+    let processedSet = new Set();
 
-    console.log(`🔎 Найдено полей для обработки: ${inputsToProcess.length}`);
+    while (true) {
+        const allInputs = document.querySelectorAll("input");
+        let screenInputs = [];
 
-    if (inputsToProcess.length === 0) {
-        console.warn("⚠️ Поля 'Цена просмотра' не найдены. Возможно, изменилась верстка или вы не на той странице.");
-        return;
-    }
-
-    // 2. Обработка каждого поля
-    for (const item of inputsToProcess) {
-        const { input } = item;
-        
-        // Пропускаем, если уже 0 (хотя мы хотим получить ошибку, так что ставим 0 принудительно)
-        console.log("Processing input...", input);
-
-        // A. Ставим 0, чтобы спровоцировать ошибку минимума
-        setNativeValue(input, "0");
-        
-        // Ждем появления ошибки (анимация UI может занимать время)
-        await delay(1500); 
-
-        // B. Ищем сообщение об ошибке рядом с инпутом
-        // Ошибка обычно содержит текст "Минимальная цена" и находится рядом
-        // Ищем во всем контейнере региона (поднимаемся выше)
-        let regionBlock = input.closest('div[class*="style-item-"]'); // Попытка найти блок
-        if (!regionBlock) regionBlock = input.parentElement.parentElement.parentElement; // Фолбек
-
-        if (!regionBlock) {
-             console.warn("Не удалось определить контейнер блока для поиска ошибки.");
-             continue;
-        }
-
-        // Ищем текст ошибки в этом блоке
-        // Пример текста: "Минимальная цена — 22 ₽" или "Минимальная ставка ..."
-        const errorElement = Array.from(regionBlock.querySelectorAll('*')).find(el => 
-            el.textContent.includes("Минимальная цена") || el.textContent.includes("Минимальная ставка")
-        );
-
-        if (errorElement) {
-            const errorText = errorElement.textContent;
-            console.log(`❗ Найдена ошибка: "${errorText}"`);
-
-            // C. Парсим цену (ищем цифры)
-            // Регулярка ищет число после слов "цена" или "ставка" или просто число в строке
-            const match = errorText.match(/(\d+)\s*₽/); // Ищем число перед знаком рубля
-            const matchSimple = errorText.match(/(\d+)/); // Фолбек просто число, если знака рубля нет
-            
-            let minPrice = null;
-            if (match) {
-                minPrice = match[1];
-            } else if (matchSimple) {
-                // Нужно быть осторожным, чтобы не взять цифру из другого контекста, но обычно там только цена
-                minPrice = matchSimple[1];
+        for (let el of allInputs) {
+            if (!processedSet.has(el)) {
+                let isBad = false;
+                let parent = el.closest('div[class*="root"]');
+                if (!parent) parent = el.closest('div[class*="style-item-"]');
+                if (!parent) parent = el.parentElement.parentElement.parentElement;
+                if (parent) {
+                    const t = parent.innerText.toLowerCase();
+                    if (t.includes("тратить") || t.includes("день") || t.includes("бюджет")) isBad = true;
+                }
+                if (isBad) { el.style.outline = "3px solid red"; continue; }
+                const val = el.value || "";
+                const pText = el.parentElement ? el.parentElement.innerText : "";
+                if (val.includes("₽") || pText.includes("₽") || el.type === "tel" || (el.type === "text" && !isNaN(parseFloat(val)))) {
+                    screenInputs.push({ el, parent });
+                }
             }
-
-            if (minPrice) {
-                console.log(`✅ Определена минимальная цена: ${minPrice}`);
-                
-                // D. Устанавливаем правильную цену
-                setNativeValue(input, minPrice);
-                // Небольшая пауза перед следующим, чтобы не спамить слишком быстро (опционально)
-                await delay(500); 
-            } else {
-                console.warn("❌ Не удалось извлечь число из текста ошибки.");
-            }
-        } else {
-            console.warn("⚠️ Сообщение о минимальной цене не появилось после установки 0.");
         }
-    }
 
-    console.log("🏁 Готово! Проверьте цены.");
-    alert("Готово! Цены обновлены до минимальных.");
+        updateDebug(`👀 Найдено: ${screenInputs.length} | Итого: ${totalProcessed}`);
+
+        if (screenInputs.length > 0) {
+            const promises = screenInputs.map(async ({ el, parent }, index) => {
+                processedSet.add(el);
+                try {
+                    el.style.outline = "3px solid blue";
+
+                    // --- ЛОГИКА ДЛЯ ПЕРВОГО ЭЛЕМЕНТА ---
+                    // Если это самый первый элемент за весь проход скрипта
+                    const isGlobalFirst = (totalProcessed === 0 && index === 0);
+
+                    const targetVal = isGlobalFirst ? "40" : "0";
+
+                    setVal(el, targetVal);
+                    document.body.click();
+                    await wait(200);
+
+                    // Если это первый элемент, мы просто ставим 40 и выходим (не ищем мин. цену)
+                    if (isGlobalFirst) {
+                        el.style.outline = "3px solid purple"; // Фиолетовый для 1-го
+                        totalProcessed++;
+                        return;
+                    }
+
+                    // Для остальных:
+                    if (el.value !== "0" && el.value !== "") {
+                        el.style.outline = "3px solid green";
+                        totalProcessed++;
+                        return;
+                    }
+
+                    const text = parent ? parent.innerText : "";
+                    const match = text.match(/Минимальн[а-я]+\s*(?:цена|ставка).*?(\d+)/i) || text.match(/(\d+)\s*₽/);
+                    if (match) {
+                        const minPrice = match[1];
+                        if (el.value.replace(/\D/g, '') !== minPrice) {
+                            setVal(el, minPrice);
+                            el.blur();
+                            el.style.outline = "3px solid green";
+                            totalProcessed++;
+                        } else {
+                            el.style.outline = "3px solid green";
+                        }
+                    } else {
+                        el.style.outline = "3px solid orange";
+                    }
+                } catch (e) {
+                    console.error(e);
+                }
+            });
+            await Promise.all(promises);
+            await wait(100);
+        }
+
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 10) {
+            updateDebug(`🏁 Финиш! ${totalProcessed}`);
+            alert(`Готово V15! Обработано строк: ${totalProcessed}`);
+            break;
+        }
+
+        window.scrollBy(0, window.innerHeight * 0.9);
+        await wait(250);
+    }
 })();
