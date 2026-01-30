@@ -1,0 +1,179 @@
+
+    <!DOCTYPE html>
+    <html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Notion Insight: Demo Project Dashboard</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
+            body { font-family: 'Outfit', sans-serif; background: #0f172a; color: #e2e8f0; }
+            .glass { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+            .gradient-text { background: linear-gradient(135deg, #60a5fa 0%, #c084fc 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        </style>
+    </head>
+    <body class="p-6 md:p-10 min-h-screen">
+        <div class="max-w-6xl mx-auto space-y-8">
+            <!-- Header -->
+            <header class="flex justify-between items-center pb-6 border-b border-slate-700">
+                <div>
+                    <h1 class="text-4xl font-bold gradient-text">Notion Analytics</h1>
+                    <p class="text-slate-400 mt-2 text-lg">База данных: <span class="text-white font-medium">Demo Project Dashboard</span></p>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm text-slate-500">Сгенерировано</p>
+                    <p class="text-xl font-mono">13:13 29.01.2026</p>
+                </div>
+            </header>
+
+            <!-- KPI Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass rounded-2xl p-6">
+                    <p class="text-slate-400 text-sm uppercase tracking-wider">Всего записей</p>
+                    <p class="text-5xl font-bold mt-2 text-blue-400">124</p>
+                </div>
+                 <div class="glass rounded-2xl p-6">
+                    <p class="text-slate-400 text-sm uppercase tracking-wider">Активных статусов</p>
+                    <p class="text-5xl font-bold mt-2 text-purple-400">5</p>
+                </div>
+                 <div class="glass rounded-2xl p-6">
+                    <p class="text-slate-400 text-sm uppercase tracking-wider">Уникальных тегов</p>
+                    <p class="text-5xl font-bold mt-2 text-emerald-400">5</p>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Status Chart -->
+                <div class="glass rounded-2xl p-6">
+                    <h3 class="text-xl font-semibold mb-4">Распределение по статусам</h3>
+                    <canvas id="statusChart"></canvas>
+                </div>
+                
+                <!-- Tag Cloud (Bar Chart) -->
+                <div class="glass rounded-2xl p-6">
+                    <h3 class="text-xl font-semibold mb-4">Популярные теги</h3>
+                    <canvas id="tagChart"></canvas>
+                </div>
+            </div>
+
+            <!-- Recent Items Table -->
+            <div class="glass rounded-2xl p-6">
+                <h3 class="text-xl font-semibold mb-6">Последние записи (Топ 10)</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead>
+                            <tr class="text-slate-500 border-b border-slate-700">
+                                <th class="pb-3 pl-4">Название</th>
+                                <th class="pb-3">Статус</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-700">
+                            
+                            <tr class="hover:bg-slate-800/50 transition-colors">
+                                <td class="py-4 pl-4 font-medium">Implement JWT Auth</td>
+                                <td class="py-4"><span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300">Done</span></td>
+                            </tr>
+                            
+                            <tr class="hover:bg-slate-800/50 transition-colors">
+                                <td class="py-4 pl-4 font-medium">Fix charts responsive layout</td>
+                                <td class="py-4"><span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300">In Progress</span></td>
+                            </tr>
+                            
+                            <tr class="hover:bg-slate-800/50 transition-colors">
+                                <td class="py-4 pl-4 font-medium">Add Dark Mode toggle</td>
+                                <td class="py-4"><span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300">Review</span></td>
+                            </tr>
+                            
+                            <tr class="hover:bg-slate-800/50 transition-colors">
+                                <td class="py-4 pl-4 font-medium">Optimize database queries</td>
+                                <td class="py-4"><span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300">To Do</span></td>
+                            </tr>
+                            
+                            <tr class="hover:bg-slate-800/50 transition-colors">
+                                <td class="py-4 pl-4 font-medium">Update landing page copy</td>
+                                <td class="py-4"><span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300">Done</span></td>
+                            </tr>
+                            
+                            <tr class="hover:bg-slate-800/50 transition-colors">
+                                <td class="py-4 pl-4 font-medium">Design system integration</td>
+                                <td class="py-4"><span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300">In Progress</span></td>
+                            </tr>
+                            
+                            <tr class="hover:bg-slate-800/50 transition-colors">
+                                <td class="py-4 pl-4 font-medium">Fix navigation bug on mobile</td>
+                                <td class="py-4"><span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300">Done</span></td>
+                            </tr>
+                            
+                            <tr class="hover:bg-slate-800/50 transition-colors">
+                                <td class="py-4 pl-4 font-medium">Setup CI/CD pipeline</td>
+                                <td class="py-4"><span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300">Done</span></td>
+                            </tr>
+                            
+                            <tr class="hover:bg-slate-800/50 transition-colors">
+                                <td class="py-4 pl-4 font-medium">Migrate to Next.js 14</td>
+                                <td class="py-4"><span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300">Blocked</span></td>
+                            </tr>
+                            
+                            <tr class="hover:bg-slate-800/50 transition-colors">
+                                <td class="py-4 pl-4 font-medium">Write documentation</td>
+                                <td class="py-4"><span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-300">To Do</span></td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Chart Config Defaults
+            Chart.defaults.color = '#94a3b8';
+            Chart.defaults.borderColor = '#334155';
+
+            // Status Chart (Doughnut)
+            new Chart(document.getElementById('statusChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['Done', 'In Progress', 'To Do', 'Review', 'Blocked'],
+                    datasets: [{
+                        data: [65, 24, 15, 12, 8],
+                        backgroundColor: [
+                            '#60a5fa', '#c084fc', '#34d399', '#f472b6', '#fbbf24', '#a78bfa'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { position: 'right' }
+                    }
+                }
+            });
+
+            // Tags Chart (Bar)
+            new Chart(document.getElementById('tagChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Feature', 'Bug', 'Enhancement', 'Design', 'Refactor'],
+                    datasets: [{
+                        label: 'Количество',
+                        data: [45, 32, 20, 15, 12],
+                        backgroundColor: '#34d399',
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { beginAtZero: true }
+                    }
+                }
+            });
+        </script>
+    </body>
+    </html>
+    

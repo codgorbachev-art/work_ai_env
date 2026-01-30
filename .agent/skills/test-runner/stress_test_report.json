@@ -1,0 +1,451 @@
+{
+  "total_scanned": 73,
+  "passed": 73,
+  "fixed": 0,
+  "failed": 0,
+  "orchestrator_status": "PASS",
+  "orchestrator_issues": [],
+  "ghost_skills": [],
+  "orphaned_skills": [],
+  "dependency_issues": [],
+  "details": [
+    {
+      "name": "angular-workflow",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "ansible-best-practices",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "api-security",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "auth-best-practices",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "auth-debugging",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "autogpt-workflow",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "aws-architecture",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "aws-patterns",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "aws-security",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "aws-workflow",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "brainstorming",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "ci-cd-pipelines",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "clean-code",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "context7-docs",
+      "type": "CODE",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "cpp-debugging",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "csrf-best-practices",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "cybersecurity-optimization",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "deep-research",
+      "type": "CODE",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "dispatching-parallel-agents",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "docker-best-practices",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "document-index",
+      "type": "CODE",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "encryption-workflow",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "executing-plans",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "finishing-a-development-branch",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "git-workflow-mastery",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "graphql-cheatsheet",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "graphql-security",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "java-security",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "jwt-cheatsheet",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "kubernetes-best-practices",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "langchain-optimization",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "llm-architecture",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "llm-security",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "machine-learning-basics",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "mongo-best-practices",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "nextjs-app-router",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "node-cheatsheet",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "nosql-best-practices",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "notion-integration",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "penetration-testing-guide",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "postgres-architecture",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "python-architecture",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "python-data-analysis",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "rag-debugging",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "rag-optimization",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "react-patterns",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "react-testing",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "receiving-code-review",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "redis-workflow",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "requesting-code-review",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "security-owasp",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "skill-orchestrator",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "sql-injection-prevention",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "sql-performance",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "sql-testing",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "subagent-driven-development",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "svelte-mastery",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "svelte-security",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "svelte-testing",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "systematic-debugging",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "tailwind-mastery",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "terraform-workflow",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "test-driven-development",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "test-runner",
+      "type": "CODE",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "using-git-worktrees",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "using-superpowers",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "verification-before-completion",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "vue-workflow",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "web-design-guidelines",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "web-scraping",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "writing-plans",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "writing-skills",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    },
+    {
+      "name": "xss-debugging",
+      "type": "DOC",
+      "status": "PASS",
+      "issues": []
+    }
+  ]
+}

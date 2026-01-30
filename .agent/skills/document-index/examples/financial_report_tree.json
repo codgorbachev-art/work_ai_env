@@ -1,0 +1,98 @@
+{
+    "title": "Q4 2024 Financial Report - Sample",
+    "total_pages": 150,
+    "doc_description": "Quarterly financial report for Q4 2024 including revenue analysis, expenses, and market outlook",
+    "nodes": [
+        {
+            "node_id": "0001",
+            "title": "Executive Summary",
+            "start_page": 0,
+            "end_page": 5,
+            "summary": "Overview of Q4 2024 performance showing 15% YoY revenue growth to $5.2M, improved EBITDA margins, and positive market outlook for 2025.",
+            "nodes": []
+        },
+        {
+            "node_id": "0002",
+            "title": "Financial Results",
+            "start_page": 6,
+            "end_page": 45,
+            "summary": "Detailed financial performance metrics including revenue, expenses, and profitability analysis.",
+            "nodes": [
+                {
+                    "node_id": "0002_0001",
+                    "title": "Revenue Analysis",
+                    "start_page": 6,
+                    "end_page": 12,
+                    "summary": "Revenue increased 15% YoY to $5.2M driven by strong product sales and subscription growth. Key segments: Enterprise (+22%), SMB (+10%), International (+18%)."
+                },
+                {
+                    "node_id": "0002_0002",
+                    "title": "Operating Expenses",
+                    "start_page": 13,
+                    "end_page": 25,
+                    "summary": "Total operating expenses of $3.1M, up 8% YoY. Main categories: R&D $1.2M, Sales & Marketing $1.5M, G&A $0.4M."
+                },
+                {
+                    "node_id": "0002_0003",
+                    "title": "EBITDA & Profitability",
+                    "start_page": 26,
+                    "end_page": 35,
+                    "summary": "EBITDA margin improved to 40% from 35% in Q4 2023. Net income of $1.5M, up 25% YoY."
+                },
+                {
+                    "node_id": "0002_0004",
+                    "title": "Cash Flow",
+                    "start_page": 36,
+                    "end_page": 45,
+                    "summary": "Operating cash flow of $1.8M, strong balance sheet with $12M cash, zero debt."
+                }
+            ]
+        },
+        {
+            "node_id": "0003",
+            "title": "Market Overview",
+            "start_page": 46,
+            "end_page": 80,
+            "summary": "Analysis of market trends, competitive landscape, and customer segments.",
+            "nodes": [
+                {
+                    "node_id": "0003_0001",
+                    "title": "Industry Trends",
+                    "start_page": 46,
+                    "end_page": 58,
+                    "summary": "Growing demand for AI-powered solutions, shift to subscription models, increased enterprise adoption."
+                },
+                {
+                    "node_id": "0003_0002",
+                    "title": "Competitive Analysis",
+                    "start_page": 59,
+                    "end_page": 70,
+                    "summary": "Market share at 8%, key competitors include CompanyA (15%), CompanyB (12%), CompanyC (10%)."
+                },
+                {
+                    "node_id": "0003_0003",
+                    "title": "Customer Segments",
+                    "start_page": 71,
+                    "end_page": 80,
+                    "summary": "Enterprise customers (55% revenue), SMB (30%), Individual (15%). High retention rate of 95%."
+                }
+            ]
+        },
+        {
+            "node_id": "0004",
+            "title": "Outlook for 2025",
+            "start_page": 81,
+            "end_page": 95,
+            "summary": "Positive outlook with projected 20% revenue growth, new product launches, expansion into APAC region.",
+            "nodes": []
+        },
+        {
+            "node_id": "0005",
+            "title": "Risk Factors",
+            "start_page": 96,
+            "end_page": 110,
+            "summary": "Market competition, regulatory changes, technology risks, and mitigation strategies.",
+            "nodes": []
+        }
+    ]
+}
